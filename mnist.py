@@ -12,7 +12,6 @@ from tensorflow.keras.layers import Conv2D, Dense, MaxPooling2D, Flatten, Dropou
  print('Features shape is {}'.format(X_train.shape))
  print('Labels shape is {}'.format(y_train.shape))
  
- 
  print('Testing dataset:')
  print('Features shape is {}'.format(X_test.shape))
  print('Labels shape is {}'.format(y_test.shape))
