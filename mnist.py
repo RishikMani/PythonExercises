@@ -33,6 +33,8 @@ X_test = X_test / 255.0
 
 '''create a Sequential keras model'''
 model = Sequential()
+
+'''for the very first layer in the model, input_shape attribute should be mentioned'''
 model.add(Conv2D(32, kernel_size=3, activation='relu', input_shape=(28, 28, 1)))
 model.add(Conv2D(64, kernel_size=3, activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -42,12 +44,14 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(10, activation='softmax'))
 
+'''tf.train.AdamOptimizer has been deprecated'''
 model.compile(optimizer=tf.compat.v1.train.AdamOptimizer(),
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
 history = model.fit(X_train, y_train, epochs=10)
 
+'''create a pandas dataset with all the keys stored in the history object'''
 hist = pd.DataFrame(history.history)
 hist['epoch'] = history.epoch
 
@@ -66,8 +70,10 @@ plot_history()
 test_loss, test_acc = model.evaluate(X_test, y_test)
 print('Test accuracy:', test_acc)
 
+'''save the model locally'''
 model.save('epic_num_reader.model')
 
+'''load the saved model'''
 new_model = tf.keras.models.load_model('epic_num_reader.model')
 predictions = new_model.predict(X_test)
 
