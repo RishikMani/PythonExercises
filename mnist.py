@@ -59,8 +59,6 @@ def plot_history():
     plt.ylabel('Accuracy vs validation accuracy')
     plt.plot(hist['epoch'], hist['acc'], label='Train accuracy')
     plt.plot(hist['epoch'], hist['val_acc'], label='Val accuracy')
-    plt.plot(hist['epoch'], hist['loss'], label='Train loss')
-    plt.plot(hist['epoch'], hist['val_loss'], label='Val loss')
     plt.legend()
     plt.show()
     
