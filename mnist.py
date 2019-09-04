@@ -1,12 +1,13 @@
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import pandas as pd
+from tensorflow.keras.datasets import mnist
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, Dense, MaxPooling2D
 from tensorflow.keras.layers import Flatten, Dropout
 
 # load the data
-(X_train, y_train), (X_test, y_test) = keras.datasets.mnist.load_data()
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 # let us check the shape of various datasets
 print('Training dataset:')
