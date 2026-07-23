@@ -1,0 +1,22 @@
+[project]
+name = "python-interview"
+description = "small exercises focusing Python interviews"
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==4.3.0",
+    "ruff==0.12.8"
+]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.format]
+line-ending = "auto"
+quote-style = "double"
+
+[tool.ruff.lint.isort]
+# force-single-line = true  # one import per line
+lines-after-imports = 2  # blank lines after the last import statement
+lines-between-types = 1  # blank lines between different import blocks

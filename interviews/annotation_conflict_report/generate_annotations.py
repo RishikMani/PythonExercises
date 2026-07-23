@@ -2,6 +2,7 @@
 
 import random
 
+
 random.seed(42)
 
 LABELS = ["tumor", "normal", "artifact"]
@@ -16,10 +17,7 @@ def generate_annotations(
     records = []
 
     # Base label for every image
-    base_label = {
-        f"img_{i}": random.choice(LABELS)
-        for i in range(num_images)
-    }
+    base_label = {f"img_{i}": random.choice(LABELS) for i in range(num_images)}
 
     conflicting_images = {
         f"img_{i}"
